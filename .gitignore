@@ -1,0 +1,17 @@
+# Arch Linux makepkg build artifacts and caches
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+pkg/
+src/
+
+# Specific source directory name used by makepkg (based on ls output)
+# Add this in case SRCDEST in makepkg.conf is set to '.'
+x86-kernel/
+
+# Log files
+*.log
+
+# Editor backup files
+*~
+*.swp

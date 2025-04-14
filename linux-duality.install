@@ -1,0 +1,36 @@
+_pkgbase=${pkgname%-*} # Should correctly get 'linux-duality' from 'linux-duality'
+_boot_dir=/boot # Standard boot directory
+
+_get_kver() {
+    local _kver_dir
+    _kver_dir=$(find /usr/lib/modules/ -maxdepth 1 -type d -name "*${_localmodver}" -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -n1 | cut -d' ' -f2-)
+
+    if [[ -n "$_kver_dir" && -d "$_kver_dir" ]]; then
+        basename "$_kver_dir"
+    else
+        echo "ERROR: Cannot determine kernel version directory for ${_pkgbase} matching *${_localmodver}" >&2
+        return 1 # Indicate error
+    fi
+}
+
+post_install() {
+    local _kver
+    # Try to get kernel version, proceed even if it fails but warn.
+    if ! _kver=$(_get_kver); then
+        echo "WARN: Failed to determine kernel version string. Skipping depmod." >&2
+    else
+        echo ">>> Updating module dependencies for ${_kver}. Please wait ..."
+        depmod "${_kver}" || echo "WARN: depmod failed for ${_kver}." >&2
+    fi
+
+    echo ">>> User is responsible for ensuring initramfs generation (via mkinitcpio hooks or dracut config)."
+
+}
+
+post_upgrade() {
+    post_install
+}
+
+post_remove() {
+    echo "Removing kernel, please check your boot configs"
+}

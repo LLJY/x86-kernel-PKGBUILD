@@ -1,0 +1,7 @@
+# %PKGNAME% will be replaced by 'linux-duality' by the PKGBUILD.
+ALL_kver="/boot/vmlinuz-%PKGNAME%"
+PRESETS=('default' 'fallback')
+default_image="/boot/initramfs-%PKGNAME%.img"
+
+fallback_image="/boot/initramfs-%PKGNAME%-fallback.img"
+fallback_options="-S autodetect"
