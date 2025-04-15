@@ -2,7 +2,7 @@
 
 pkgname=linux-duality
 pkgrel=1
-pkgver=6.14.0 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
+pkgver=6.14.2 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
 _localmodver="-Duality"
 pkgdesc="Custom Linux kernel (Duality build with Clang/LTO)"
 arch=('x86_64')
@@ -32,7 +32,7 @@ source=(
     "${pkgname}.preset"
 )
 sha256sums=('SKIP'
-            '76de97b905a5006288b4f2c4c6a79c0169a31f0d4b4c956bbae3829a4a1e7c61'
+            'cf6a72b1707a8cc3c9de7d7880838c08940de8cb4445714c03b2b014933b1f50'
             '754ddad0aadd7a58148d076788d489a0958c0e30d89460aa1946b249b2fb429d')
 
 # Automatically determine pkgver from git repo
