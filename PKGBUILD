@@ -44,6 +44,11 @@ pkgver() {
 # --- PREPARE ---
 prepare() {
     cd "x86-kernel"
+    export LLVM=1
+    export CC=clang
+    export CXX=clang++
+    export HOSTCC=clang
+    export LLVM_IAS=1
     cp ../config.x86_64 .config
     make modules_prepare
 }
