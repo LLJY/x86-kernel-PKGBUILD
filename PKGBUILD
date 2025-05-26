@@ -2,7 +2,7 @@
 
 pkgname=linux-duality
 pkgrel=1
-pkgver=6.14.2 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
+pkgver=6.15.0 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
 _localmodver="-Duality"
 pkgdesc="Custom Linux kernel (Duality build with Clang/LTO)"
 arch=('x86_64')
