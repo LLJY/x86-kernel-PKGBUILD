@@ -27,7 +27,7 @@ options=(!strip)
 install=${pkgname}.install
 
 source=(
-    "git+https://github.com/LLJY/x86-kernel.git"
+    "git+https://github.com/LLJY/x86-kernel.git#branch=v6.15-CFS"
     'config.x86_64'
     "${pkgname}.preset"
 )
