@@ -50,6 +50,7 @@ prepare() {
     export HOSTCC=clang
     export LLVM_IAS=1
     cp ../config.x86_64 .config
+    echo "OBJECT_FILES_NON_STANDARD_amdgpu.o := y" >> drivers/gpu/drm/amd/amdgpu/Makefile
     make modules_prepare
 }
 
@@ -61,9 +62,7 @@ build() {
     export CXX=clang++
     export HOSTCC=clang
     export LLVM_IAS=1
-    # WORKAROUND: Temporarily disable objtool's unwind validation to bypass
-    # known harmless errors with heavily optimized AMDGPU code.
-    make OBJTOOL_ARGS="--no-unwind" LOCALVERSION=${_localmodver}
+    make LOCALVERSION=${_localmodver}
 }
 
 # --- PACKAGE ---
