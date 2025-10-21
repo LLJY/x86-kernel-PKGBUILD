@@ -50,11 +50,6 @@ prepare() {
     export HOSTCC=clang
     export LLVM_IAS=1
     cp ../config.x86_64 .config
-    # --- WORKAROUND for objtool/LTO/Polly conflict in AMDGPU ---
-    # This disables LTO specifically for amdgpu.o, which often resolves
-    # objtool validation errors with heavily optimized builds.
-    echo "CFLAGS_REMOVE_amdgpu.o = -flto=auto" >> drivers/gpu/drm/amd/amdgpu/Makefile
-    # --- End WORKAROUND ---
     make modules_prepare
 }
 
