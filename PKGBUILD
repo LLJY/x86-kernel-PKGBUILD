@@ -32,7 +32,7 @@ source=(
     "${pkgname}.preset"
 )
 sha256sums=('SKIP'
-            '4de16726b23a70513f579fe359c846a6c204df5ede48fcc2a81fe781b74393ca'
+            'eb2e20d190ada94ee330b546e5abdda6e74c1c4bc4226eda8ff49443173ef7e5'
             '754ddad0aadd7a58148d076788d489a0958c0e30d89460aa1946b249b2fb429d')
 
 # Automatically determine pkgver from git repo
