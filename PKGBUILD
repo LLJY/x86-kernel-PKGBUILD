@@ -2,7 +2,7 @@
 
 pkgname=linux-duality
 pkgrel=1
-pkgver=6.17.4 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
+pkgver=7.0.11 # NOTE: Hardcoded version, pkgver() function below might override if uncommented properly
 _localmodver="-Duality"
 pkgdesc="Custom Linux kernel (Duality build with Clang/LTO)"
 arch=('x86_64')
@@ -27,12 +27,12 @@ options=(!strip)
 install=${pkgname}.install
 
 source=(
-    "git+https://github.com/LLJY/x86-kernel.git#branch=v6.17-CFS"
+    "git+https://github.com/LLJY/x86-kernel.git#branch=7.0"
     'config.x86_64'
     "${pkgname}.preset"
 )
 sha256sums=('SKIP'
-            'cf6a72b1707a8cc3c9de7d7880838c08940de8cb4445714c03b2b014933b1f50'
+            '48df9df4dd0cb2372fb4a021a4d903193d1b74535f7076b72ee42eed2bd4b14f'
             '754ddad0aadd7a58148d076788d489a0958c0e30d89460aa1946b249b2fb429d')
 
 # Automatically determine pkgver from git repo
